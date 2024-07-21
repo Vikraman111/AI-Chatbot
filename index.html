@@ -1,0 +1,94 @@
+<!-- /*******************************************************************************
+*  Project Name :   AI ChatBot                                                 *
+*  Developer   :Vikraman SP                                                    *
+*                                                                              *
+*                                                                              *
+*********************************************************************************/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <a href="index.html" class="logo">
+      Vikraman.AI
+      <p>- Built using Gemini</p>
+    </a>
+
+    <div class="social-buttons">
+      <button
+        class="social-button linkedin-button"
+        onclick="window.open('https://www.linkedin.com/in/vikraman-sp/', '_blank')"
+      ></button>
+      <button
+        class="social-button github-button"
+        onclick="window.open('https://github.com/Vikraman111', '_blank')"
+      ></button>
+      <button
+        class="social-button resume-button"
+        onclick="window.open('https://ai.google.dev/', '_blank')"
+      ></button>
+    </div>
+
+    <div class="convo">
+      Welcome to Vikraman.ai, Your AI assistant <br />
+      Feel free to ask your queries!
+    </div>
+    <div class="form">
+      <input type="text" id="input" placeholder="Enter your queries" />
+      <button id="button">Click to generate</button>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import { GoogleGenerativeAI } from "@google/generative-ai";
+      const genAI = new GoogleGenerativeAI(
+        "AIzaSyBb7ivehc3naFWbhu7F6cGrQnNqLl-pHzo"
+      );
+      document.getElementById("button").addEventListener("click", hello);
+
+      var click = 0;
+      async function hello() {
+        const input = document.getElementById("input").value;
+        const convo = document.querySelector(".convo");
+        click++;
+        // To clear welcome message
+        if (click == 1) convo.textContent = "";
+
+        // Displaying user input
+        const userMessage = document.createElement("div");
+        userMessage.className = "message user";
+
+        userMessage.textContent = `You: ${input}`;
+        convo.appendChild(userMessage);
+
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const result = await model.generateContent(input);
+        const response = await result.response;
+        const text = await response.text();
+
+        // Displaying AI response
+        const aiMessage = document.createElement("div");
+        aiMessage.className = "message ai";
+
+        aiMessage.textContent = `Vikraman-AI: ${text}`;
+        convo.appendChild(aiMessage);
+
+        convo.scrollTop = convo.scrollHeight;
+        document.getElementById("input").value = "";
+      }
+    </script>
+  </body>
+</html>

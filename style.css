@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  background-image: url(bg-img.jpg);
+
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/*Logo*/
+.logo {
+  display: flex;
+  margin-left: 30px;
+  padding-right: 160px;
+  color: rgb(255, 230, 230);
+  text-decoration: none;
+  font-size: 2.6em;
+  font-family: "Poppins";
+}
+
+.logo p {
+  color: rgb(255, 230, 230, 0.8);
+  padding-inline: 50px;
+  font-size: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    font-size: 2.2em;
+    padding-right: 120px;
+  }
+
+  .logo p {
+    font-size: 1.6rem;
+    padding-inline: 40px;
+  }
+
+  .social-buttons {
+    top: 10px;
+    right: 10px;
+  }
+
+  .social-button {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 950px) {
+  .logo {
+    font-size: 1.8em;
+    padding-right: 80px;
+    margin-left: 20px;
+  }
+
+  .logo p {
+    font-size: 1.4rem;
+    padding-inline: 30px;
+  }
+
+  .social-buttons {
+    top: 5px;
+    right: 5px;
+  }
+
+  .social-button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .logo {
+    font-size: 1.4em;
+    padding-right: 60px;
+    margin-left: 10px;
+  }
+
+  .logo p {
+    font-size: 1.2rem;
+    padding-inline: 20px;
+  }
+  .social-buttons {
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .social-button {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    font-size: 1.2em;
+    padding-right: 40px;
+    margin-left: 5px;
+  }
+
+  .logo p {
+    font-size: 1rem;
+    padding-inline: 10px;
+  }
+  .social-buttons {
+    top: 5px;
+    right: 5px;
+    gap: 3px;
+  }
+
+  .social-button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+/* Input from user*/
+#input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #999797;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 80px;
+  margin-bottom: 10px;
+}
+
+/* Generation Button */
+#button {
+  margin-bottom: 10px;
+  margin-inline: 80px;
+  width: 150px;
+  padding: 10px;
+  font-size: 23px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1200px) {
+  #input {
+    margin-left: 60px;
+    font-size: 15px;
+  }
+
+  #button {
+    width: 130px;
+    font-size: 21px;
+    margin-inline: 60px;
+  }
+}
+
+@media (max-width: 950px) {
+  #input {
+    margin-left: 40px;
+    font-size: 14px;
+  }
+
+  #button {
+    width: 110px;
+    font-size: 19px;
+    margin-inline: 40px;
+  }
+}
+
+@media (max-width: 720px) {
+  #input {
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  #button {
+    width: 90px;
+    font-size: 17px;
+    margin-inline: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #input {
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    font-size: 16px;
+  }
+
+  #button {
+    width: 100px;
+    font-size: 17px;
+    margin-inline: 10px;
+  }
+}
+
+/*User and IA chat*/
+.convo {
+  margin-top: 10px;
+  color: white;
+  flex: 1;
+  background-color: black;
+  margin-inline: 80px;
+  border: 2px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+.form {
+  display: flex;
+}
+
+.controls {
+  padding: 10px;
+  border-top: 1px solid black;
+  background: #f0f0f0;
+}
+
+/* Message styling for ai and user */
+.message {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.message.user {
+  font-weight: bold;
+}
+
+.message.ai {
+  margin-left: 20px;
+}
+
+/* Social Media Buttons */
+.social-buttons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.social-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.social-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.linkedin-button {
+  background-color: #0077b5;
+}
+
+.linkedin-button:before {
+  content: "in";
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.github-button {
+  background-color: #333;
+}
+
+.github-button:before {
+  font-size: 1.4em;
+  content: "Git";
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.resume-button {
+  background-color: #d93f3f;
+}
+
+.resume-button:before {
+  content: "API";
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 18px;
+}
